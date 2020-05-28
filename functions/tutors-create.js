@@ -18,7 +18,6 @@ exports.handler = async (event, context) => {
   return client.query(q.Create(q.Ref('classes/tutors'), tutor))
     .then((response) => {
       console.log('success', response)
-      /* Success! return the response with statusCode 200 */
       return {
         statusCode: 200,
         body: JSON.stringify(response)
