@@ -4,7 +4,6 @@
     const data = await response.json()
 
     if (response.status === 200) {
-      console.log(`Fetched tutor: ${data.firstName} ${data.lastName}`)
       return { tutor: data }
     } else {
       this.error(response.status, data.message)
@@ -17,13 +16,20 @@
 </script>
 
 <svelte:head>
-  <title>Ako: Tutor</title>
+  <title>Ako: {tutor.firstName}</title>
 </svelte:head>
 
 <section class="section content">
-  <h1>{tutor.firstName} {tutor.lastName}</h1>
+  <h1 class="title">{tutor.firstName} {tutor.lastName}</h1>
 
-  <div class="content">
+  <div>
     {@html tutor.bio}
   </div>
+
+  <ul class="list">
+    {#each tutor.subjects as subject}
+      <li class="list-item">{subject}</li>
+    {/each}
+  </ul>
+  
 </section>

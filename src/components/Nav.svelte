@@ -26,5 +26,13 @@
         tutors
       </a>
     </li>
+    <li>
+      <a
+        rel="prefetch"
+        aria-current={segment === 'tutors' ? 'page' : undefined}
+        href="tutors/register">
+        register
+      </a>
+    </li>
   </ul>
 </nav>

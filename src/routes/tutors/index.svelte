@@ -4,8 +4,6 @@
     const data = await response.json()
 
     if (response.status === 200) {
-      console.log(`Fetched tutors...`)
-      console.log(JSON.parse(JSON.stringify(data)))
       return { tutors: data }
     } else {
       this.error(response.status, data.message)
@@ -14,8 +12,6 @@
 </script>
 
 <script>
-  import NewTutor from '../../components/newTutor.svelte'
-
   export let tutors
 </script>
 
@@ -26,14 +22,13 @@
 <section class="section content">
   <h1>Tutors</h1>
 
-  <NewTutor />
-
-  <ul>
+  <ul class="list">
     {#each tutors as tutor}
-      <li>
+      <li class="list-item">
         <a rel="prefetch" href="tutors/{tutor.slug}">{tutor.name}</a>
       </li>
     {/each}
   </ul>
+
 </section>
 

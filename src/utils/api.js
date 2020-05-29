@@ -1,44 +1,48 @@
 const url = 'https://ako-tutor.netlify.app'
 
-function create(data) {
-  console.log(data)
-  return fetch(url + '/.netlify/functions/tutors-create', {
+async function create(data) {
+  let response = await fetch(url + '/.netlify/functions/tutors-create', {
     body: JSON.stringify(data),
     method: 'POST'
-  }).then(response => {
-    return response.json()
   })
+  response = await response.json()
+
+  return response
 }
 
-function read(tutorId) {
-  return fetch(url + `/.netlify/functions/tutors-delete/${tutorId}`, {
+async function read(tutorId) {
+  let response = await fetch(url + `/.netlify/functions/tutors-delete/${tutorId}`, {
     method: 'POST',
-  }).then(response => {
-    return response.json()
   })
+  response = await response.json()
+
+  return response
 }
 
-function readAll() {
-  return fetch(url + '/.netlify/functions/tutors-read-all').then((response) => {
-    return response.json()
-  })
+async function readAll() {
+  let response = await fetch(url + '/.netlify/functions/tutors-read-all')
+  response = await response.json()
+  
+  return response
 }
 
-function update(tutorId, data) {
-  return fetch(url + `/.netlify/functions/tutors-update/${tutorId}`, {
+async function update(tutorId, data) {
+  let response = await fetch(url + `/.netlify/functions/tutors-update/${tutorId}`, {
     body: JSON.stringify(data),
     method: 'POST'
-  }).then(response => {
-    return response.json()
   })
+  response = await response.json()
+
+  return response
 }
 
-function deleteTutor(tutorId) {
-  return fetch(url + `/.netlify/functions/tutors-delete/${tutorId}`, {
+async function deleteTutor(tutorId) {
+  let response = await fetch(url + `/.netlify/functions/tutors-delete/${tutorId}`, {
     method: 'POST',
-  }).then(response => {
-    return response.json()
   })
+  response = response.json()
+
+  return response
 }
 
 export default {
