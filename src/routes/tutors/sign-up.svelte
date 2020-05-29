@@ -19,6 +19,10 @@
   }
 </script>
 
+<svelte:head>
+  <title>Ako: Sign up</title>
+</svelte:head>
+
 <section class="section content">
   <h2 class="title">New Tutor</h2>
 
