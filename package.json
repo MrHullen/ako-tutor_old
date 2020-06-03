@@ -2,23 +2,23 @@
   "name": "ako-tutor",
   "description": "An app to match students with tutors.",
   "version": "0.0.1",
+  "license": "MIT",
+  "repository": "git://github.com/MrHullen/ako-tutor.git",
   "scripts": {
     "dev": "sapper dev",
     "build": "sapper build --legacy",
     "export": "sapper export --legacy",
     "start": "node __sapper__/build",
-    "bootstrap": "node scripts/bootstrap-fauna-database.js",
     "css-build": "node-sass --omit-source-map-url src/sass/styles.scss static/global.css"
   },
   "dependencies": {
-    "@fortawesome/fontawesome-free": "^5.13.0",
-    "@fortawesome/free-solid-svg-icons": "^5.13.0",
     "compression": "^1.7.1",
-    "netlify-lambda": "^1.6.3",
     "polka": "next",
     "sirv": "^0.4.0"
   },
   "devDependencies": {
+    "@fortawesome/fontawesome-free": "^5.13.0",
+    "netlify-lambda": "^1.6.3",
     "@babel/core": "^7.0.0",
     "@babel/plugin-syntax-dynamic-import": "^7.0.0",
     "@babel/plugin-transform-runtime": "^7.0.0",

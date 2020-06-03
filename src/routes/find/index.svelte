@@ -16,7 +16,7 @@
 
  export let tutors
 
-  let stage = 0
+  let step = 0
   let school
   let subject
 
@@ -40,7 +40,7 @@
          / 1fr;
   }
 
-  .stage {
+  .step {
     grid-area: dropdown;
     place-self: center;
   }
@@ -54,10 +54,10 @@
   <h1 class="title">Find a tutor</h1>
 
   <div id="parent">
-    {#if stage === 0}
+    {#if step === 0}
       <div
-        class="stage field has-addons"
-        out:fly="{{ y: -150, duration: 1000 }}">
+        class="step field has-addons"
+        out:fly|local="{{ y: -150, duration: 1000 }}">
         <div class="control">
           <div class="select is-medium">
             <select bind:value={school}>
@@ -70,16 +70,16 @@
         <div class="control">
           <button
             class="button is-primary is-medium"
-            on:click={ () => { stage++ }}>
+            on:click={ () => { step++ }}>
             Select
           </button>
         </div>
       </div>
-    {:else if stage === 1}
+    {:else if step === 1}
       <div
-        class="stage field has-addons"
+        class="step field has-addons"
         in:fly="{{ y: 150, duration: 1000 }}"
-        out:fly="{{ y: -150, duration: 1000 }}">
+        out:fly|local="{{ y: -150, duration: 1000 }}">
         <div class="control">
           <div class="select is-medium">
             <select bind:value={subject}>
@@ -92,14 +92,14 @@
         <div class="control">
           <button
             class="button is-primary is-medium"
-            on:click={ () => { stage++ }}>
+            on:click={ () => { step++ }}>
             Select
           </button>
         </div>
       </div>
     {:else}
       <div
-        class="stage"
+        class="step"
         in:fly="{{ y: 150, duration: 1000 }}">
         Your recommended tutor is...
         {tutors[Math.floor(Math.random() * tutors.length)].name}

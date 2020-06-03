@@ -21,7 +21,7 @@
   <div class="navbar-brand">
     <a
     class="navbar-item has-text-primary is-family-secondary is-size-3"
-    href="https://ako-tutor.netlify.app">
+    href=".">
       Ako Tutor
     </a>
 
@@ -44,6 +44,7 @@
     <div class="navbar-start">
       <a
         class="navbar-item"
+        class:is-active={segment === undefined ? 'page' : undefined}
         aria-current={segment === undefined ? 'page' : undefined}
         href=".">
         Home
@@ -51,6 +52,7 @@
 
       <a
         class="navbar-item"
+        class:is-active={segment === 'about' ? 'page' : undefined}
         aria-current={segment === 'about' ? 'page' : undefined}
         href="about">
         About
@@ -58,8 +60,9 @@
 
       <a
         class="navbar-item"
-        rel="prefetch"
+        class:is-active={segment === 'find' ? 'page' : undefined}
         aria-current={segment === 'find' ? 'page' : undefined}
+        rel="prefetch"
         href="find">
         Find a tutor
       </a>

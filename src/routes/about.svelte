@@ -1,5 +1,5 @@
 <svelte:head>
-	<title>About</title>
+	<title>Ako: About</title>
 </svelte:head>
 
 <section class="section content">

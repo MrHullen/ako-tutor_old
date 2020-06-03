@@ -2,8 +2,7 @@ import tutors from '../tutor/_tutors.js';
 
 const contents = JSON.stringify(tutors.map(tutor => {
 	return {
-		name: tutor.firstName + ' ' + tutor.lastName,
-		slug: tutor.slug
+		name: tutor.firstName + ' ' + tutor.lastName
 	};
 }));
 
