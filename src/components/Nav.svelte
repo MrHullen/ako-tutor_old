@@ -1,4 +1,13 @@
 <script>
+  import { stores } from '@sapper/app'
+  const { session } = stores()
+
+  import { onMount } from 'svelte'
+
+  onMount( () => {
+    session.user = false
+  })
+
   export let segment
 
   let active = false
@@ -8,21 +17,10 @@
   }
 </script>
 
-<style>
-  .script {
-    font-family: 'Pacifico', cursive;
-    font-size: 2em;
-  }
-</style>
-
-<svelte:head>
-  <link href="https://fonts.googleapis.com/css2?family=Pacifico&display=swap" rel="stylesheet">
-</svelte:head>
-
 <nav class="navbar" role="navigation" aria-label="main navigation">
   <div class="navbar-brand">
     <a
-    class="navbar-item script has-text-primary"
+    class="navbar-item has-text-primary is-family-secondary is-size-3"
     href="https://ako-tutor.netlify.app">
       Ako Tutor
     </a>
@@ -61,24 +59,39 @@
       <a
         class="navbar-item"
         rel="prefetch"
-        aria-current={segment === 'tutors' ? 'page' : undefined}
-        href="tutors">
-        Tutors
+        aria-current={segment === 'find' ? 'page' : undefined}
+        href="find">
+        Find a tutor
       </a>
 
     </div>
 
     <div class="navbar-end">
       <div class="navbar-item">
-        <div class="buttons">
-          <a
-            class="button is-primary"
-            aria-current={segment === 'tutors/sign-up' ? 'page' : undefined}
-            href="tutors/sign-up">
-            <strong>Sign up</strong>
-          </a>
-          <a class="button is-light">Log in</a>
-        </div>
+        {#if session.user}
+          <div class="buttons">
+            <button
+              class="button is-light"
+              on:click={
+                () => { session.user = false }
+              }>
+              Log out</button>
+          </div>
+        {:else}
+          <div class="buttons">
+            <a
+              class="button is-primary"
+              aria-current={segment === 'sign-up' ? 'page' : undefined}
+              href="sign-up">
+              <strong>Sign up</strong>
+            </a>
+
+            <a
+              class="button is-light"
+              aria-current={segment === 'login' ? 'page' : undefined}
+              href="login">Log in</a>
+          </div>
+        {/if}
       </div>
     </div>
   </div>

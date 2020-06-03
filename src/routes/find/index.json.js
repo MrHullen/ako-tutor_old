@@ -1,4 +1,4 @@
-import tutors from './_tutors.js';
+import tutors from '../tutor/_tutors.js';
 
 const contents = JSON.stringify(tutors.map(tutor => {
 	return {

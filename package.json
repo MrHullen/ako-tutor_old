@@ -11,6 +11,8 @@
     "css-build": "node-sass --omit-source-map-url src/sass/styles.scss static/global.css"
   },
   "dependencies": {
+    "@fortawesome/fontawesome-free": "^5.13.0",
+    "@fortawesome/free-solid-svg-icons": "^5.13.0",
     "compression": "^1.7.1",
     "netlify-lambda": "^1.6.3",
     "polka": "next",
