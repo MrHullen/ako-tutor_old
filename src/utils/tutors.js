@@ -1,12 +1,10 @@
-// Ordinarily, you'd generate this data from markdown files in your
-// repo, or fetch them from a database of some kind. But in order to
-// avoid unnecessary dependencies in the starter template, and in the
-// service of obviousness, we're just going to leave it here.
 const tutors = [
 	{
 		firstName: 'Barry',
 		lastName: 'Batman',
 		slug: '0',
+		email: 'barry@batman.com',
+		school: "Rangi Ruru Girls' School",
 		subjects: [
 			'English',
 			'Mathematics',
@@ -21,6 +19,8 @@ const tutors = [
 		firstName: 'Thomas',
 		lastName: 'Tornado',
 		slug: '1',
+		email: 'thomas@tornado.com',
+		school: "Rangi Ruru Girls' School",
 		subjects: [
 			'English',
 			'Science',
@@ -35,6 +35,8 @@ const tutors = [
 		firstName: 'Robin',
 		lastName: 'Robin',
 		slug: '2',
+		email: 'robin@robin.com',
+		school: "Rangi Ruru Girls' School",
 		subjects: [
 			'Mathematics',
 			'Art',
@@ -49,6 +51,8 @@ const tutors = [
 		firstName: 'Fred',
 		lastName: 'Flash',
 		slug: '3',
+		email: 'fred@flash.com',
+		school: "Rangi Ruru Girls' School",
 		subjects: [
 			'History',
 			'Social Studies',
@@ -63,6 +67,8 @@ const tutors = [
 		firstName: 'Lionel',
 		lastName: 'Lightning',
 		slug: '4',
+		email: 'lionel@lightning.com',
+		school: "Shirley Boys' High School",
 		subjects: [
 			'Social Studies',
 			'Spanish',
@@ -77,6 +83,8 @@ const tutors = [
 		firstName: 'Fiona',
 		lastName: 'Flood',
 		slug: '5',
+		email: 'fiona@flood.com',
+		school: "Shirley Boys' High School",
 		subjects: [
 			'French',
 			'Art',
@@ -91,6 +99,8 @@ const tutors = [
 		firstName: 'Wanda',
 		lastName: 'Wonder',
 		slug: '6',
+		email: 'wanda@wonder.com',
+		school: "Shirley Boys' High School",
 		subjects: [
 			'English',
 			'Mathematics',

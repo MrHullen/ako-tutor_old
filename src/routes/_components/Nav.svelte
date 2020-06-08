@@ -67,6 +67,13 @@
       <div class="navbar-item">
         {#if session.user}
           <div class="buttons">
+            <a
+              class="button is-primary"
+              aria-current={segment === 'my-profile' ? 'page' : undefined}
+              href="my-profile">
+              <strong>My Profile</strong>
+            </a>
+
             <button
               class="button is-light"
               on:click={

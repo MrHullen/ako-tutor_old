@@ -1,6 +1,15 @@
 <script>
+  import { onMount } from 'svelte'
   import { fly } from 'svelte/transition'
   import api from '../../utils/api'
+
+  let schools = []
+  let subjects = []
+
+  onMount(async () => {
+    schools = await api.getSchools()
+    subjects = await api.getSubjects()
+	})
 
   let step = 0
   let school
@@ -11,19 +20,6 @@
     let tutor = await api.getTutor(school, subject)
     tutorName = tutor.firstName + ' ' + tutor.lastName
   }
-
-  let schools = [
-    "Rangi Ruru Girls' School",
-    "Shirley Boys' High School"
-  ]
-
-  let subjects = [
-    'English',
-    'Mathematics',
-    'Science',
-    'Art'
-  ]
-
 </script>
 
 <style>
@@ -53,6 +49,8 @@
             <select bind:value={school}>
               {#each schools as school}
                 <option value={school}>{school}</option>
+              {:else}
+                <option>Finding schools...</option>
               {/each}
             </select>
           </div>
@@ -75,6 +73,8 @@
             <select bind:value={subject}>
               {#each subjects as subject}
                 <option value={subject}>{subject}</option>
+              {:else}
+                <option>Finding subjects...</option>
               {/each}
             </select>
           </div>

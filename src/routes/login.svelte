@@ -2,8 +2,9 @@
   import { stores } from '@sapper/app'
   const { session } = stores()
 
-  import api from '../utils/api'
   import { goto } from '@sapper/app'
+
+  import api from '../utils/api'
 
   let emptyEmail = false
   let emptyPassword = false
@@ -18,19 +19,19 @@
 
   async function handleSubmit() {
     if (!user.email || !user.password) {
-      emptyEmail = user.email ? false : true
-      emptyPassword = user.password ? false : true
+      emptyEmail = !user.email
+      emptyPassword = !user.password
     } else {
       isLoading = true
 
       // temporary code for UI feel...
-      setTimeout(() => {
+      setTimeout(async () => {
         isSuccess = true
-        session.user = true
+        session.user = await api.read(user.email)
       }, 1000)
 
       setTimeout(() => {
-        goto('/')
+        goto('/my-profile')
       }, 2000)
     
       /* Actual login code...

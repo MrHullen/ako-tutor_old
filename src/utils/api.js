@@ -1,5 +1,7 @@
-// tutors is dummy code for dev purposes only
-import tutors from './tutors.js'
+// dummy code for dev purposes only
+import tutors from './tutors'
+import schools from './schools'
+import subjects from './subjects'
 
 async function create(data) {
   let response = await fetch('/.netlify/functions/tutors-create', {
@@ -11,18 +13,26 @@ async function create(data) {
   return response
 }
 
-async function read(tutorId) {
+async function read(email) {
+  // DEV CODE
+  const tutor = tutors.find(tutor => tutor.email === email)
+  console.log('Email: ' + email)
+  console.log('Tutor: ' + tutor.firstName)
+  return tutor
+
+  /* ACTUAL CODE
   let response = await fetch(`/.netlify/functions/tutors-delete/${tutorId}`, {
     method: 'POST',
   })
   response = await response.json()
 
   return response
+  */
 }
 
 async function readAll() {
   // DEV CODE
-  return JSON.stringify({ tutors })
+  return tutors
 
 
   /* ACTUAL CODE
@@ -59,6 +69,16 @@ async function deleteTutor(tutorId) {
   return response
 }
 
+async function getSchools() {
+  // DEV CODE
+  return schools
+}
+
+async function getSubjects() {
+  // DEV CODE
+  return subjects
+}
+
 export default {
   create: create,
   read: read,
@@ -66,4 +86,6 @@ export default {
   getTutor: getTutor,
   update: update,
   delete: deleteTutor,
+  getSchools: getSchools,
+  getSubjects: getSubjects,
 }
