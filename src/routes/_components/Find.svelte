@@ -1,24 +1,16 @@
-<script context="module">
-  export async function preload({ params, query }) {
-    const response = await this.fetch(`find.json`)
-    const data = await response.json()
-
-    if (response.status === 200) {
-      return { tutors: data }
-    } else {
-      this.error(response.status, data.message)
-    }
-  }
-</script>
-
 <script>
   import { fly } from 'svelte/transition'
-
- export let tutors
+  import api from '../../utils/api'
 
   let step = 0
   let school
   let subject
+  let tutorName
+
+  async function findTutor() {
+    let tutor = await api.getTutor(school, subject)
+    tutorName = tutor.firstName + ' ' + tutor.lastName
+  }
 
   let schools = [
     "Rangi Ruru Girls' School",
@@ -31,6 +23,7 @@
     'Science',
     'Art'
   ]
+
 </script>
 
 <style>
@@ -46,12 +39,9 @@
   }
 </style>
 
-<svelte:head>
-  <title>Ako: Tutors</title>
-</svelte:head>
-
 <section class="section content">
-  <h1 class="title">Find a tutor</h1>
+
+  <h1 class="title has-text-centered">Find a tutor</h1>
 
   <div id="parent">
     {#if step === 0}
@@ -92,7 +82,7 @@
         <div class="control">
           <button
             class="button is-primary is-medium"
-            on:click={ () => { step++ }}>
+            on:click={ () => { findTutor(), step++ }}>
             Select
           </button>
         </div>
@@ -102,21 +92,10 @@
         class="step"
         in:fly="{{ y: 150, duration: 1000 }}">
         Your recommended tutor is...
-        {tutors[Math.floor(Math.random() * tutors.length)].name}
+        {tutorName}
       </div>
     {/if}
-
   </div>
-
-<!--
-  <ul class="list">
-    {#each tutors as tutor}
-      <li class="list-item">
-        <a rel="prefetch" href="tutor/{tutor.slug}">{tutor.name}</a>
-      </li>
-    {/each}
-  </ul>
--->
 
 </section>
 

@@ -1,7 +1,8 @@
-const url = 'https://ako-tutor.netlify.app'
+// tutors is dummy code for dev purposes only
+import tutors from './tutors.js'
 
 async function create(data) {
-  let response = await fetch(url + '/.netlify/functions/tutors-create', {
+  let response = await fetch('/.netlify/functions/tutors-create', {
     body: JSON.stringify(data),
     method: 'POST'
   })
@@ -11,7 +12,7 @@ async function create(data) {
 }
 
 async function read(tutorId) {
-  let response = await fetch(url + `/.netlify/functions/tutors-delete/${tutorId}`, {
+  let response = await fetch(`/.netlify/functions/tutors-delete/${tutorId}`, {
     method: 'POST',
   })
   response = await response.json()
@@ -20,14 +21,27 @@ async function read(tutorId) {
 }
 
 async function readAll() {
-  let response = await fetch(url + '/.netlify/functions/tutors-read-all')
+  // DEV CODE
+  return JSON.stringify({ tutors })
+
+
+  /* ACTUAL CODE
+  let response = await fetch('/.netlify/functions/tutors-read-all')
   response = await response.json()
   
   return response
+  */
+}
+
+async function getTutor(school, subject) {
+  // DEV CODE
+  const index = Math.floor(Math.random() * tutors.length)
+  const tutor = tutors[index]
+  return tutor
 }
 
 async function update(tutorId, data) {
-  let response = await fetch(url + `/.netlify/functions/tutors-update/${tutorId}`, {
+  let response = await fetch(`/.netlify/functions/tutors-update/${tutorId}`, {
     body: JSON.stringify(data),
     method: 'POST'
   })
@@ -37,7 +51,7 @@ async function update(tutorId, data) {
 }
 
 async function deleteTutor(tutorId) {
-  let response = await fetch(url + `/.netlify/functions/tutors-delete/${tutorId}`, {
+  let response = await fetch(`/.netlify/functions/tutors-delete/${tutorId}`, {
     method: 'POST',
   })
   response = response.json()
@@ -49,6 +63,7 @@ export default {
   create: create,
   read: read,
   readAll: readAll,
+  getTutor: getTutor,
   update: update,
   delete: deleteTutor,
 }

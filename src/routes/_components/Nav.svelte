@@ -21,6 +21,8 @@
   <div class="navbar-brand">
     <a
     class="navbar-item has-text-primary is-family-secondary is-size-3"
+    class:is-active={segment === undefined}
+    aria-current={segment === undefined ? 'page' : undefined}
     href=".">
       Ako Tutor
     </a>
@@ -42,17 +44,10 @@
     class="navbar-menu"
     class:is-active={active}>
     <div class="navbar-start">
-      <a
-        class="navbar-item"
-        class:is-active={segment === undefined ? 'page' : undefined}
-        aria-current={segment === undefined ? 'page' : undefined}
-        href=".">
-        Home
-      </a>
 
       <a
         class="navbar-item"
-        class:is-active={segment === 'about' ? 'page' : undefined}
+        class:is-active={segment === 'about'}
         aria-current={segment === 'about' ? 'page' : undefined}
         href="about">
         About
@@ -60,11 +55,10 @@
 
       <a
         class="navbar-item"
-        class:is-active={segment === 'find' ? 'page' : undefined}
+        class:is-active={segment === 'find'}
         aria-current={segment === 'find' ? 'page' : undefined}
-        rel="prefetch"
         href="find">
-        Find a tutor
+        Find
       </a>
 
     </div>

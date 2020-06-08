@@ -101,10 +101,10 @@ const tutors = [
 			<p>DIY you probably haven't heard of them twee tote bag lyft humblebrag vexillologist meggings. Hammock viral YOLO, man bun raclette echo park poutine selfies +1 taiyaki messenger bag williamsburg normcore kogi. Blog letterpress meggings, street art chillwave selvage copper mug gluten-free adaptogen brooklyn four loko before they sold out fingerstache synth. Stumptown seitan typewriter ethical, umami mlkshk shabby chic mixtape meggings occupy cronut raclette poke. +1 chartreuse lyft, vexillologist hammock fingerstache bitters aesthetic kogi marfa microdosing.</p>
 		`
 	}
-];
+]
 
 tutors.forEach(tutor => {
-	tutor.html = tutor.bio.replace(/^\t{3}/gm, '');
-});
+	tutor.html = tutor.bio.replace(/^\t{3}/gm, '')
+})
 
-export default tutors;
+export default tutors

@@ -1,4 +1,4 @@
-import tutors from './_tutors.js';
+import tutors from '../../utils/tutors.js';
 
 const lookup = new Map();
 
